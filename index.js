@@ -2,9 +2,8 @@
 const fs = require('fs');
 const inquirer = require('inquirer');
 const generateMarkdown = require('./utils/generateMarkdown.js');
-// const licenseData = require('./utils/generateMarkdown.js');
 
-// This creates markdown language for the README.md using string.
+// This creates the body of the README.md file inside a string.
 const generateREADME = (answers) =>
 `# ${answers.projTitle}
 ${answers.projLicBadge}
@@ -53,6 +52,7 @@ Have questions or need clarification? Please don't hesitate to reach out to me v
 @2021 ${answers.projName}
 `;
 
+// This function initializes the application and launches the inquirer to solicit user input.
 const init = () => {
 
     inquirer
@@ -114,35 +114,18 @@ const init = () => {
 
         .then((answers) => {
 
+            // Calls imported function to handle license badge and language data, as these take up considerable space.
             const data = generateMarkdown(answers.projLic);
 
+            // Assigns returned data from the function to the answers array.
             answers.projLicBadge = data[0];
             answers.projLicTxt = data[1];
 
-            // renderLicenseBadge(answers.projLic);
-            // renderLicenseLink(answers.projLic);
-            // renderLicenseSection(answers.projLic);
-
-            // if (answers.projLic == 'MIT') {
-            //     answers.projLicTxt = licenseMIT;
-            //     answers.projLicBadge = '[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)';
-            // }
-
-            // if (answers.projLic == 'Apache') {
-            //     answers.projLicTxt = licenseApache;
-            //     answers.projLicBadge = '[![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)';
-            // }
-
-            // if (answers.projLic == 'GPL') {
-            //     answers.projLicTxt = licenseGPL;
-            //     answers.projLicBadge = '[![License: GPL v2](https://img.shields.io/badge/License-GPL%20v2-blue.svg)](https://www.gnu.org/licenses/old-licenses/gpl-2.0.en.html)';
-            // }
-          
-            // // console.log(answers.projLicTxt);
-
+            // Inserts user input into the pre-made README.md file and saves it.
             fs.writeFile('README.md', generateREADME(answers), (err) =>
             err ? console.log(err) : console.log('Generated readme.md'));
         })
 };
 
+// Calls inquirer upon applicaton launch.
 init();

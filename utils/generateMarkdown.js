@@ -53,9 +53,7 @@ function renderLicenseSection(license) {
 // Create a function to generate markdown for README.
 function generateMarkdown(data) {
 
-  console.log(data);
-
-  // Call separate functions for license badge and language.
+  // Call two separate functions for license badge and language.
   renderLicenseBadge(data);
   renderLicenseSection(data);
 
@@ -63,5 +61,5 @@ function generateMarkdown(data) {
 
 }
 
-// Make these functions available to the index.js file.
+// Import to make these functions available to the index.js file.
 module.exports = generateMarkdown;
