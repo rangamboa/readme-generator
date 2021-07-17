@@ -50,7 +50,7 @@ Have questions or need clarification? Please don't hesitate to reach out to me.
 
 * [Email](mailto:${answers.projEmail})
 ---
-@2021
+@2021 ${answers.projName}
 `;
 
 const init = () => {
@@ -59,6 +59,12 @@ const init = () => {
         // Create an array of questions for user input to build README.md.
 
         .prompt([
+        {
+            type: 'input',
+            name: 'projName',
+            message: 'What is your name?',
+        },
+        {
         {
             type: 'input',
             name: 'projTitle',
