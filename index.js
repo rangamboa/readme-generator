@@ -1,8 +1,10 @@
 // Include packages needed for this application.
 const fs = require('fs');
 const inquirer = require('inquirer');
-const licenseData = require('./utils/generateMarkdown.js');
+const generateMarkdown = require('./utils/generateMarkdown.js');
+// const licenseData = require('./utils/generateMarkdown.js');
 
+// This creates markdown language for the README.md using string.
 const generateREADME = (answers) =>
 `# ${answers.projTitle}
 ${answers.projLicBadge}
@@ -22,8 +24,6 @@ ${answers.projDesc}
 
 ## License
 
-This project is covered under the ${answers.projLic} license:
-
 ${answers.projLicTxt}
 
 ## Installation
@@ -38,13 +38,13 @@ ${answers.projUsage}
 
 ${answers.projCont}
 
-## Test Instructions
+## Testing
 
 ${answers.projTest}
 
 ## Questions
 
-Have questions or need clarification? Please don't hesitate to reach out to me.
+Have questions or need clarification? Please don't hesitate to reach out to me via GitHub or email! Thanks for checking out my project.
 
 * [GitHub Profile](https://github.com/${answers.projGit}) 
 
@@ -64,7 +64,6 @@ const init = () => {
             name: 'projName',
             message: 'What is your name?',
         },
-        {
         {
             type: 'input',
             name: 'projTitle',
@@ -114,6 +113,11 @@ const init = () => {
         ])
 
         .then((answers) => {
+
+            const data = generateMarkdown(answers.projLic);
+
+            answers.projLicBadge = data[0];
+            answers.projLicTxt = data[1];
 
             // renderLicenseBadge(answers.projLic);
             // renderLicenseLink(answers.projLic);
