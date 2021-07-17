@@ -18,7 +18,7 @@ README Generator is a command-line application that dynamically generates a prof
 
 ## Walkthrough
 
-Here's a link to a [walkthrough video on YouTube](https://www.youtube.com/watch?v=M-JnNamKpLE&ab_channel=RanGamboa) to show you the generator in action.]
+Here's a link to a [walkthrough video on YouTube](https://www.youtube.com/watch?v=M-JnNamKpLE&ab_channel=RanGamboa) to show you the generator in action.
 
 ## License
 
