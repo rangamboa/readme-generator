@@ -123,7 +123,7 @@ const init = () => {
 
             // Inserts user input into the pre-made README.md file and saves it.
             fs.writeFile('README.md', generateREADME(answers), (err) =>
-            err ? console.log(err) : console.log('Generated readme.md'));
+            err ? console.log(err) : console.log('Successfully generated readme.md'));
         })
 };
 
