@@ -34,7 +34,7 @@ This project uses node and npm. Install them if you do not have them on your loc
 
 ## Usage
 
-Use node ``.\index.js`` to run this application. Inquirer will launch, asking your input with which to generate your a ``README.md`` file for your project.
+Use node ``.\index.js`` to run this application. Inquirer will launch, asking your input with which to generate a ``README.md`` file for your project.
 
 ## Contribution
 
